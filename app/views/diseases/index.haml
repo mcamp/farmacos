@@ -1,0 +1,10 @@
+
+.diseases
+  .title 
+    Enfermedades
+  %ul
+    -@diseases.each_with_index do |disease, index|
+      -if index.even?
+        %li.desease=disease.name
+      -else
+        %li.desease.odd=disease.name

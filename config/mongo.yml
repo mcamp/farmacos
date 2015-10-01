@@ -1,0 +1,8 @@
+production:
+  uri: "mongodb://localhost/farmacos_production"
+
+development:
+  uri: "mongodb://localhost/farmacos_development"
+
+test:
+  uri: "mongodb://localhost/farmacos_test"

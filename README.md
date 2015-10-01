@@ -1,1 +1,1 @@
-# farmacos
+Lista de Fármacos y Enfermedades asociadas a ellos

@@ -1,0 +1,35 @@
+ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+li{
+  cursor: pointer; cursor: hand;
+  padding: 5px;
+
+  &:hover{
+    background-color: #E8DADA;
+  }
+  &.odd{
+
+    &:hover{
+      background-color: #E8DADA;
+    }
+    background-color: #F1E7E7; 
+  }
+}
+
+.diseases{
+  margin-left: 20px;
+  margin-right: 10px;
+  width: 400px;
+  border: 2px solid #717377;
+}
+
+.title{
+  text-align: center;
+  background-color: #E6DFDF;
+  padding: 10px;
+  border-bottom: 2px solid #717377;
+}
