@@ -33,6 +33,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'mongo_mapper'
 gem 'bson_ext'
 
+gem 'responders'
+
 # views
 gem 'haml'
 

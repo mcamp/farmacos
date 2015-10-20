@@ -18,13 +18,22 @@ li{
     }
     background-color: #F1E7E7; 
   }
+
+  &.selected{
+    font-weight: bold;
+  }
 }
 
-.diseases{
-  margin-left: 20px;
-  margin-right: 10px;
+.tableSeparator{
+  display: inline-block;
+  width: 50px;
+}
+
+.listTable{
   width: 400px;
   border: 2px solid #717377;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .title{
@@ -32,4 +41,10 @@ li{
   background-color: #E6DFDF;
   padding: 10px;
   border-bottom: 2px solid #717377;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.content{
+  text-align: center;
 }

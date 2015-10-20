@@ -1,10 +1,18 @@
 
-.diseases
-  .title 
-    Enfermedades
-  %ul
-    -@diseases.each_with_index do |disease, index|
-      -if index.even?
-        %li.desease=disease.name
-      -else
-        %li.desease.odd=disease.name
+.content
+  .listTable.diseases
+    .title 
+      Enfermedades
+    %ul
+      -@diseases.each_with_index do |disease, index|
+        -if index.even?
+          %li.disease{:ajaxCall => disease_drugs_path(disease)}=disease.name
+        -else
+          %li.disease.odd{:ajaxCall => disease_drugs_path(disease)}=disease.name
+
+  .tableSeparator
+
+  .listTable.drugs
+    .title
+      Fármacos
+    %ul

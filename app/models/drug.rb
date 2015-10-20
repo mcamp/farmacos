@@ -14,5 +14,7 @@ class Drug
   #Cholinergic load (?)
   key :cholinergic_load, Integer, :default => 0
 
-
+  def diseases
+    return Disease.where(:drug_ids => d.id).all
+  end
 end
