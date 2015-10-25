@@ -8,11 +8,11 @@ task load_csv: :environment do
       compact_row = row.compact
       if compact_row.size >= 2
         disease = Disease.new
-        disease.name = compact_row.second.strip.downcase
+        disease.name = compact_row.second.strip
         
         drugs_row = compact_row[2..-1]
         drugs = drugs_row.collect{ |drug_name|
-          Drug.find_or_initialize_by_name(drug_name.strip.downcase)
+          Drug.find_or_initialize_by_name(drug_name.strip)
         }
     
         disease.drugs = drugs
