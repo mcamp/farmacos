@@ -1,5 +1,5 @@
 production:
-  uri: "mongodb://localhost/farmacos_production"
+  uri: <%= ENV['MONGOLAB_URI'] %>
 
 development:
   uri: "mongodb://localhost/farmacos_development"
