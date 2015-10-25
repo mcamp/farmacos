@@ -3,7 +3,7 @@ class DrugsController < ApplicationController
   
   def index
     @disease = Disease.find(params[:disease_id])
-    @drugs = @disease.drugs
+    @drugs = @disease.drugs.sort_alphabetical_by{|drug| drug.name}
     
     respond_with({drugs: @drugs, disease: @disease})
   end

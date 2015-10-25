@@ -38,7 +38,9 @@ gem 'responders'
 # views
 gem 'haml'
 
+# utf-8
 gem 'unicode_utils'
+gem 'sort_alphabetical'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
