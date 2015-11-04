@@ -14,10 +14,22 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
+var canceled = null;
 $(document).ready(function() {
   $(".disease").click(function(){
     openDrugs($(this));
+  });
+
+  $(".add_criteria").click(function(){
+    addingDrugCriteria($("#addCriteriaURL").html());
+  });
+
+  $('body').on('click', '.cancel_criteria', function (){
+      cancelDrugCriteria($(this));
+  });
+
+  $('body').on('click', '.create_criteria', function (){
+      createDrugCriteria($(this));
   });
 });
 
@@ -25,43 +37,43 @@ $(document).ready(function() {
 function openDrugs(aLiElement){
   $.ajax({
    url: aLiElement.attr("ajaxCall"),
-    success: function (diseaseAndDrugs) {
-      var drugsUl =  $(".listTable.drugs > ul");
-      drugsUl.html(generateStringHtmlList(diseaseAndDrugs["drugs"]));
-      changeTableTitle($(".listTable.drugs"), diseaseAndDrugs["disease"].name);
-      styleList(drugsUl);
-      styleListElement(aLiElement)
+    success: function () {
     },
     error: function (){
-        window.alert("something wrong!");
+      window.alert("something wrong!");
     }
   });
 }
 
-function generateStringHtmlList(elements) {
-  var stringList = "<ul>\n";
-  elements.forEach(function(element) {
-    stringList += "<li>"+element.name+"</li>\n";
-  });
-  stringList += "</ul>";
-  return stringList;
-}
-
-function styleList(elementList){  
-  elementList.find("li").each(function(index){
-    if(index%2 != 0){
-      $(this).addClass("odd");
+function addingDrugCriteria(url){
+  $.ajax({
+   url: url,
+    success: function () {
+    },
+    error: function (){
+      window.alert("something wrong!");
     }
   });
 }
 
-function styleListElement(anElement){
-  anElement.parent().find("li").each(function(){
-    $(this).removeClass("selected");
-  });
-  anElement.addClass("selected");
+function cancelDrugCriteria(clickedElement){
+  clickedElement.parent().parent().remove();
 }
 
-function changeTableTitle(table, title){
-  table.find(".title").html("Fármacos para <span class='short italic'>"+title+"</span>");
+function createDrugCriteria(clickedElement){
+  var criteria = clickedElement.parent().parent().find("[name=criteria]").val();
+  var ctype = clickedElement.parent().parent().find("[name^=ctype]").val();
+  var description = clickedElement.parent().parent().find("[name=description]").val();
+  $.ajax({
+    type: "POST",
+    url: clickedElement.attr("url"),
+    data: {criteria: criteria, ctype: ctype, description: description },
+    success: function () {
+      cancelDrugCriteria(clickedElement);
+    },
+    error: function (){
+      window.alert("something wrong!");
+    }
+  });
 }
+

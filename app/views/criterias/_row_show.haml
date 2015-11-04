@@ -1,0 +1,12 @@
+-criteria ||= @criteria
+-drug ||= @drug
+%tr
+  %td
+    =criteria.ctype
+  %td
+    =criteria.criteria
+  %td
+    =criteria.description
+  %td.icons
+    =image_tag("pencil", alt: "Modificar Criterio", class: "icon click modify_criteria")
+    =image_tag("sign-error", alt: "Eliminar Criterio", class: "icon click delete_criteria")

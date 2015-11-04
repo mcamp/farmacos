@@ -1,0 +1,8 @@
+.title
+  Fármacos
+  %span.short.italic=@disease.name
+%ul
+  -@drugs.each_with_index do |drug, index|
+    %li.drug{:id => drug.id}
+      =link_to(drug.name, drug_path(drug))
+

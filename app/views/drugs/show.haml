@@ -1,0 +1,37 @@
+#addCriteriaURL.hide
+  =new_drug_criteria_path(@drug)
+.content
+  .complete_information
+    .field
+      .label
+        Fármaco:
+      .info.text
+        =@drug.name
+    .field
+      .label
+        Enfermedades:
+      .info.list
+        %ul
+          -@drug.diseases.each do |disease|
+            %li=disease.name
+    .field
+      .label
+        Criterios:
+      .info.table
+        %table#drugCriteria
+          %tr
+            %th
+              Tipo
+            %th
+              Criterio
+            %th
+              Descripción
+            %th
+          -@drug.criterias.each do |criteria|
+            =render('criterias/row_show', :drug=> @drug, :criteria => criteria)
+          %tfoot
+            %td
+            %td
+            %td
+            %td.icons
+              =image_tag("sign-add", alt: "Agregar Criterio", class: "icon click add_criteria")

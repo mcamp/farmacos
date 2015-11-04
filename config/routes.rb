@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :diseases, only: [:index] do
     resources :drugs, only: [:index]
   end
+  resources :drugs, only: [:show] do
+    resources :criterias, only: [:new, :create]
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

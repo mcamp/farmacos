@@ -1,0 +1,52 @@
+.complete_information{
+  width: 800px;
+  text-align: left;
+  display: inline-block;
+}
+
+.field{
+  padding: 2px;
+}
+
+.label{
+  display: inline-block;
+  width: 30%;
+  font-weight: bold;
+}
+
+.info{
+  display: inline-block;
+  width: 65%;
+}
+.info.list{
+  vertical-align: text-top;
+}
+
+.list {
+  > ul{
+    list-style-type: circle;
+    padding-left: 18px;
+
+    >li{
+      padding: 0;
+      padding-left: 6px;
+    }
+  }
+
+}
+
+.info.table{
+  vertical-align: top;
+
+  table{ 
+    width: 100%;
+    th{
+      font-weight: normal;
+      color: #039
+    }
+    td{
+      border-top: 1px solid #e8edff;
+      font-size: 14px;
+    }
+  }
+}

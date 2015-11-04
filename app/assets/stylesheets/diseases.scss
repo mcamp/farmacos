@@ -4,14 +4,15 @@ ul {
   padding: 0px;
 }
 
-li{
+.listTable > ul > li{
   cursor: pointer; cursor: hand;
   padding: 5px;
 
   &:hover{
     background-color: #E8DADA;
   }
-  &.odd{
+
+  &:nth-child(even){
 
     &:hover{
       background-color: #E8DADA;

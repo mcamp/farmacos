@@ -12,6 +12,7 @@
  *
  *= require general
  *= require diseases
+ *= require drugs
  *= require_tree .
  *= require_self
  */

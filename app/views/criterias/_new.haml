@@ -1,0 +1,11 @@
+%tr
+  %td
+    =text_field_tag 'ctype'
+  %td
+    =select_tag "criteria", options_from_collection_for_select(@criterias, "name", "to_html_string")
+  %td
+    =text_field_tag "description"
+  %td.icons
+    =image_tag("sign-check", alt: "Guardar Criterio", class: "icon click create_criteria", url: drug_criterias_path(@drug))
+    =image_tag("sign-error", alt: "Eliminar Criterio", class: "icon click cancel_criteria")
+
