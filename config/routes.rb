@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :diseases, only: [:index] do
     resources :drugs, only: [:index]
   end
-  resources :drugs, only: [:show] do
+  resources :drugs, only: [:show, :index] do
     resources :criterias, only: [:new, :create]
   end
   resources :criterias, only: [:destroy, :edit, :update]
