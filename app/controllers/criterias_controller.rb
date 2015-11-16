@@ -4,6 +4,7 @@ class CriteriasController < ApplicationController
   def new
     @drug = Drug.find(params[:drug_id])
     @criterias = Criteria.allCriterias
+    @ctypes = Criteria.allTypes
   end
 
   def create
@@ -13,6 +14,11 @@ class CriteriasController < ApplicationController
     @criteria.description = params[:description]
     @criteria.ctype = params[:ctype]
     @criteria.save!
+  end
+
+  def destroy
+    @criteria = Criteria.find(params[:id])
+    @criteria.destroy
   end
 
 end

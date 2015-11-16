@@ -15,4 +15,8 @@ class Criteria
     [ForAllCriteria]
   end
 
+  def self.allTypes
+    {:beers1 => "Beers 1", :beers2 => "Beers 2", :beers3 => "Beers 3", :stopp => "STOPP", :liss => "Liss"}
+  end
+
 end

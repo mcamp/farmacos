@@ -29,8 +29,9 @@ $(document).ready(function() {
   });
 
   $('body').on('click', '.create_criteria', function (){
-      createDrugCriteria($(this));
+    createDrugCriteria($(this));
   });
+
 });
 
 
@@ -49,6 +50,7 @@ function addingDrugCriteria(url){
   $.ajax({
    url: url,
     success: function () {
+
     },
     error: function (){
       window.alert("something wrong!");
@@ -76,4 +78,3 @@ function createDrugCriteria(clickedElement){
     }
   });
 }
-
