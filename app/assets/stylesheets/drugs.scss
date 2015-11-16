@@ -10,7 +10,7 @@
 
 .label{
   display: inline-block;
-  width: 30%;
+  width: 20%;
   font-weight: bold;
 }
 
@@ -37,7 +37,7 @@
 
 .info.table{
   vertical-align: top;
-
+  width:100%;
   table{ 
     width: 100%;
     th{
@@ -48,5 +48,16 @@
       border-top: 1px solid #e8edff;
       font-size: 14px;
     }
+  }
+}
+
+.associatedDisease{
+  font-size: 14px;
+  font-style: italic;
+}
+
+.diseases_on_criteria{
+  select{
+    width: 100%;
   }
 }

@@ -14,6 +14,13 @@ class CriteriasController < ApplicationController
     @criteria.drug = @drug
     @criteria.description = params[:description]
     @criteria.ctype = params[:ctype]
+
+    if @criteria.class == DiseaseCriteria
+      @associatedDisease = Disease.find(params[:associatedDisease])
+      puts @associatedDisease
+      @criteria.associatedDisease = @associatedDisease
+    end
+
     @criteria.save!
   end
 

@@ -7,12 +7,20 @@ class Criteria
   key :description
 
   def criteria
+    self.class.to_html_string
+  end
+
+  def withDisease?
+    false
+  end
+
+  def self.to_html_string
     raise "SubclassResponsibility"
   end
 
   def self.allCriterias
     # all subclasses, for whatever reason >>subclasses is not working
-    [ForAllCriteria]
+    [ForAllCriteria, DiseaseCriteria]
   end
 
   def self.allTypes

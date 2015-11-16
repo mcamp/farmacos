@@ -32,6 +32,15 @@ $(document).ready(function() {
     createDrugCriteria($(this));
   });
 
+  $('body').on('change', '#criteria', function (){
+    if($(this).val() == "DiseaseCriteria"){
+      addDiseaseToCriteria($(this));
+    }
+    else
+      $(".diseases_on_criteria").remove();
+
+  });
+
 });
 
 
@@ -63,13 +72,21 @@ function cancelDrugCriteria(clickedElement){
 }
 
 function createDrugCriteria(clickedElement){
+  var data = {};
   var criteria = clickedElement.parent().parent().find("[name=criteria]").val();
-  var ctype = clickedElement.parent().parent().find("[name^=ctype]").val();
+  var ctype = clickedElement.parent().parent().find("[name=ctype]").val();
   var description = clickedElement.parent().parent().find("[name=description]").val();
+  data["criteria"] = criteria;
+  data["ctype"] = ctype;
+  data["description"] = description;
+  if(criteria == "DiseaseCriteria"){
+    data["associatedDisease"] = clickedElement.parent().parent().find("[name=associated_disease]").val();
+    canceled = data;
+  }
   $.ajax({
     type: "POST",
     url: clickedElement.attr("url"),
-    data: {criteria: criteria, ctype: ctype, description: description },
+    data: data,
     success: function () {
       cancelDrugCriteria(clickedElement);
     },
@@ -78,3 +95,16 @@ function createDrugCriteria(clickedElement){
     }
   });
 }
+
+ function addDiseaseToCriteria(clickedElememt){
+  $.ajax({
+    type: "GET",
+    url: clickedElememt.attr("url"),
+    success: function (html) {
+      clickedElememt.after(html);
+    },
+    error: function (){
+      window.alert("something wrong!");
+    }
+  });
+ }

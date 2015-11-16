@@ -2,6 +2,9 @@
   =criteria.ctype
 %td
   =criteria.criteria
+  -if criteria.withDisease?
+    .associatedDisease=criteria.associatedDisease.name
+
 %td
   =criteria.description
 %td.icons

@@ -2,7 +2,7 @@
   %td
     =select_tag 'ctype', options_from_collection_for_select(@ctypes, :first, :last, '2')
   %td
-    =select_tag "criteria", options_from_collection_for_select(@criterias, "name", "to_html_string")
+    =select_tag "criteria", options_from_collection_for_select(@criterias, "name", "to_html_string"), url: diseases_path()
   %td
     =text_field_tag "description"
   %td.icons
