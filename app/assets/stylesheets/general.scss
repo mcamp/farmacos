@@ -2,7 +2,9 @@
   font-family: helvetica;
   font-size: 16px;
 }
-
+a {
+  all: unset;
+}
 body {
   margin: 0;
   background-color: #FFF4F4;
