@@ -1,0 +1,10 @@
+%td
+  =select_tag 'ctype', options_from_collection_for_select(@ctypes, :first, :last, @criteria.ctype)
+%td
+  =select_tag "criteria", options_from_collection_for_select(@criterias, "name", "to_html_string", @criteria.criteria)
+%td
+  =text_field_tag "description", @criteria.description
+%td.icons
+  =link_to image_tag("sign-check", alt: "Guardar Criterio", class: "icon click edit_criteria"), criteria_path(@criteria), :remote => true, :method => :put
+  / =image_tag("sign-error", alt: "Cancelar Cambios", class: "icon click cancel_changes_criteria")
+

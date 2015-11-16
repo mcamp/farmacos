@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :drugs, only: [:show] do
     resources :criterias, only: [:new, :create]
   end
-  resources :criterias, only: [:destroy]
+  resources :criterias, only: [:destroy, :edit, :update]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
