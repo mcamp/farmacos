@@ -16,4 +16,9 @@ class DrugsController < ApplicationController
     @drug = Drug.find(params[:id])
   end
 
+  def select_index
+    @drugs = Drug.all
+    render partial: 'select_index', layout: false if request.xhr?
+  end
+
 end

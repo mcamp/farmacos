@@ -3,7 +3,9 @@
 %td
   =criteria.criteria
   -if criteria.withDisease?
-    .associatedDisease=criteria.associatedDisease.name
+    .associatedCriteria=criteria.associatedDisease.name
+  -if criteria.withDrug?
+    .associatedCriteria=criteria.associatedDrug.name
 
 %td
   =criteria.description

@@ -38,6 +38,12 @@ $(document).ready(function() {
     else
       $(".diseases_on_criteria").remove();
 
+    if($(this).val() == "DrugCriteria"){
+      addDrugToCriteria($(this));
+    }
+    else
+      $(".drugs_on_criteria").remove();
+
   });
 
 });
@@ -80,8 +86,11 @@ function createDrugCriteria(clickedElement){
   data["description"] = description;
   if(criteria == "DiseaseCriteria"){
     data["associatedDisease"] = clickedElement.parent().parent().find("[name=associated_disease]").val();
-    canceled = data;
   }
+  if(criteria == "DrugCriteria"){
+    data["associatedDrug"] = clickedElement.parent().parent().find("[name=associated_drug]").val();
+  }
+  
   $.ajax({
     type: "POST",
     url: clickedElement.attr("url"),
@@ -98,7 +107,19 @@ function createDrugCriteria(clickedElement){
  function addDiseaseToCriteria(clickedElememt){
   $.ajax({
     type: "GET",
-    url: clickedElememt.attr("url"),
+    url: clickedElememt.attr("url_disease"),
+    success: function (html) {
+      clickedElememt.after(html);
+    },
+    error: function (){
+      window.alert("something wrong!");
+    }
+  });
+ }
+ function addDrugToCriteria(clickedElememt){
+  $.ajax({
+    type: "GET",
+    url: clickedElememt.attr("url_drug"),
     success: function (html) {
       clickedElememt.after(html);
     },
