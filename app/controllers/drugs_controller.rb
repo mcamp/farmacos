@@ -8,8 +8,9 @@ class DrugsController < ApplicationController
       @disease = Disease.new
       @drugs = Drug.all
     else
-      @drugs = @disease.drugs.sort_alphabetical_by{|drug| drug.name}
+      @drugs = @disease.drugs
     end
+    @drugs = @drugs.sort_alphabetical_by{|drug| drug.name}
   end
 
   def show
@@ -17,7 +18,7 @@ class DrugsController < ApplicationController
   end
 
   def select_index
-    @drugs = Drug.all
+    @drugs = Drug.all.sort_alphabetical_by{|drug| drug.name}
     render partial: 'select_index', layout: false if request.xhr?
   end
 
