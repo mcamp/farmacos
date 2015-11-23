@@ -2,10 +2,7 @@
   =criteria.ctype
 %td
   =criteria.criteria
-  -if criteria.withDisease?
-    .associatedCriteria=criteria.associatedDisease.name
-  -if criteria.withDrug?
-    .associatedCriteria=criteria.associatedDrug.name
+  .associatedCriteria=criteria.associatedCriteria
 
 %td
   =criteria.description

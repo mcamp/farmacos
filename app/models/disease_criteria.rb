@@ -5,6 +5,10 @@ class DiseaseCriteria < Criteria
     true
   end
 
+  def  associatedCriteria
+    self.associatedDisease.name
+  end
+
   def self.to_html_string
     "Con Enfermedad"
   end

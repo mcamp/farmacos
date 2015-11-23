@@ -25,6 +25,10 @@ class CriteriasController < ApplicationController
       @criteria.associatedDrug = @associatedDrug
     end
 
+    if @criteria.custom?
+      @criteria.restriction = params[:customRestriction]
+    end
+
     @criteria.save!
   end
 

@@ -18,13 +18,21 @@ class Criteria
     false
   end
 
+  def custom?
+    false
+  end
+
+  def associatedCriteria
+    ""
+  end
+
   def self.to_html_string
     raise "SubclassResponsibility"
   end
 
   def self.allCriterias
     # all subclasses, for whatever reason >>subclasses is not working
-    [ForAllCriteria, DiseaseCriteria, DrugCriteria]
+    [ForAllCriteria, DiseaseCriteria, DrugCriteria, CustomCriteria]
   end
 
   def self.allTypes

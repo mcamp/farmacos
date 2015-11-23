@@ -44,6 +44,12 @@ $(document).ready(function() {
     else
       $(".drugs_on_criteria").remove();
 
+    if($(this).val() == "CustomCriteria"){
+      $(".custom_criteria").show();
+    }
+    else
+      $(".custom_criteria").hide();
+
   });
 
 });
@@ -84,6 +90,7 @@ function createDrugCriteria(clickedElement){
   data["criteria"] = criteria;
   data["ctype"] = ctype;
   data["description"] = description;
+  data["customRestriction"] = clickedElement.parent().parent().find("[name=customRestriction]").val();
   if(criteria == "DiseaseCriteria"){
     data["associatedDisease"] = clickedElement.parent().parent().find("[name=associated_disease]").val();
   }
