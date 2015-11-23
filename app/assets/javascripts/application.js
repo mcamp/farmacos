@@ -52,6 +52,14 @@ $(document).ready(function() {
 
   });
 
+  $('body').on('click', '.drugFieldButton', function (){
+    if($(this).attr("update"))
+      savingDrugField($(this));
+    else
+      editingDrugField($(this));
+  });
+
+
 });
 
 
@@ -135,3 +143,32 @@ function createDrugCriteria(clickedElement){
     }
   });
  }
+
+function editingDrugField(clickedElement){
+  var dataElement = clickedElement.parent().parent().find(".info.text");
+  dataElement.html("<input type='number' name='"+dataElement.attr("inputName")+"'>");
+  clickedElement.html("Guardar");
+  clickedElement.attr("update", "true");
+}
+
+function savingDrugField(clickedElement){
+   dataElement = clickedElement.parent().parent().find(".info.text");
+   inputElement = dataElement.children().first()
+  var drugValue = inputElement.val();
+  var data = {};
+  data[inputElement.attr("name")] = drugValue;
+  $.ajax({
+    type: "PUT",
+    url: clickedElement.attr("url"),
+    data: data,
+    success: function () {
+      dataElement.html(drugValue);
+      clickedElement.html("Cambiar");
+      clickedElement.attr("update", "");
+    },
+    error: function (){
+      window.alert("something wrong!");
+    }
+  });
+  
+}

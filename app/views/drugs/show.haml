@@ -16,6 +16,14 @@
             %li=disease.name
     .field
       .label
+        Carga Anticolinérgica:
+      .info.text{inputName: "anticholinergic_load"}
+        =@drug.anticholinergic_load
+      .editDrug
+        =button_tag "Cambiar", class: "drugFieldButton", url: drug_path(@drug), update: ""
+
+    .field
+      .label
         Criterios:
       .info.table
         %table#drugCriteria

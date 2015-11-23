@@ -22,4 +22,10 @@ class DrugsController < ApplicationController
     render partial: 'select_index', layout: false if request.xhr?
   end
 
+  def update
+    @drug = Drug.find(params[:id])
+    @drug.update_attributes(params)
+    render json: @drug
+  end
+
 end

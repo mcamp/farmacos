@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resource :drugs, only: [] do
     get :select_index
   end
-  resources :drugs, only: [:show, :index] do
+  resources :drugs, only: [:show, :index, :update] do
     resources :criterias, only: [:new, :create]
   end
 

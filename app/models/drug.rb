@@ -5,6 +5,7 @@ class Drug
   belongs_to :family
 
   key :name, :required => true, :unique => true
+  key :anticholinergic_load, :default => "N/A"
 
 
   def diseases
