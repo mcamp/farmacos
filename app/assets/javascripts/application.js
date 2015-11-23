@@ -146,7 +146,7 @@ function createDrugCriteria(clickedElement){
 
 function editingDrugField(clickedElement){
   var dataElement = clickedElement.parent().parent().find(".info.text");
-  dataElement.html("<input type='number' name='"+dataElement.attr("inputName")+"'>");
+  dataElement.html("<input type='number' name='"+dataElement.attr("inputName")+"' value="+dataElement.html()+">");
   clickedElement.html("Guardar");
   clickedElement.attr("update", "true");
 }
